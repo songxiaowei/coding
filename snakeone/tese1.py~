@@ -1,0 +1,25 @@
+#coding=utf-8
+import re
+import urllib
+#实现功能：爬取绿禾网的价钱信息，只是单个信息
+#拓展：希望能爬取多维度的信息，比如价钱代表的物品也爬取，并对应
+#bug的原因是正则表达式写的不正确，导致b输出有问题
+#time:2016-09-21
+def getHtml(url):
+	page = urllib.urlopen(url)
+	html = page.read()
+	return html
+
+def getMoney(html):
+	reg = r'</span>(.*?)<span class="tag_buy">' 
+	context = re.compile(reg)
+	p = re.findall(context,html)
+	return p
+
+
+a = getHtml("http://lvhe365.com/")
+#print a
+b = getMoney(a)
+print  b
+#print len(b)
+
