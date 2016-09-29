@@ -72,4 +72,51 @@ git revert HEAD
 git log显示提交的历史
 然后查看版本号，利用git reset --hard 版本号 回退
 
+9 修改一次就应该
+git add
+git commit
+git push一次
+
+10 分支的总结
+创建一个分支
+git checkout -b 分支名
+查看分支名
+git branch
+切换分支
+git checkout 分支名
+将分支删掉
+git branch -d 分支名
+
+注意：除非将分支推送到远端仓库，不然该分支是不为人所见的
+
+git push origin 分支名
+这样就把分支送到远程仓库了
+
+11 对远程仓库操作
+1） 查看远程分支
+git remote -v
+
+2)从远程获取最新版本到本地
+git fetch origin master:temp
+git fetch origin master:temp 这句命令的意思是：从远程的origin仓库的master分支下载到本地并新建一个分支temp
+
+3)比较本地仓库和远程仓库的区别
+git log -p master origin/master
+
+4)合并temp分支到master分支上
+git merge temp
+
+5)如果不想要这个分支了，删掉分支
+git branch -d temp
+
+12 分支管理
+分支合并
+     比如，如果要将开发中的分支（develop），合并到稳定分支（master），
+     首先切换的master分支：git checkout master。
+     然后执行合并操作：git merge develop。
+     如果有冲突，会提示你，调用git status查看冲突文件。
+     解决冲突，然后调用git add或git rm将解决后的文件暂存。
+     所有冲突解决后，git commit 提交更改。
+
+
 
