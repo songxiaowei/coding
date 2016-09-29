@@ -56,3 +56,20 @@ Warning: Permanently added 'github.com' (RSA) to the list of known hosts.
 如果你实在担心有人冒充GitHub服务器，输入yes前可以对照GitHub的RSA Key的指纹信息是否与SSH连接给出的一致。
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+8 回退版本（如果我这次提交的代码有错误，需要恢复到以前的版本） 
+git reset HEAD^
+1）回退所有内容到上一个版本
+git reset HEAD^ a.py
+2)回退a.py这个文件的版本到上一个版本
+git reset --soft HEAD~3
+3)向前回退到第3个版本
+git reset --hard origin/master
+4)将本地的状态回退到和远程的一样
+git reset 057d
+5)回退到某个版本
+git revert HEAD
+6)
+git log显示提交的历史
+然后查看版本号，利用git reset --hard 版本号 回退
+
+
