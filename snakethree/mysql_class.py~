@@ -1,0 +1,142 @@
+#Filename:mysql_class.py
+
+import MySQLdb
+
+class MyDb:
+	'''初始化[类似于构造函数]'''
+	def __init__(self, host, user, passwd, charset='utf-8'):
+		self.host = host
+		self.user = user
+		self.passwd = password
+		self.charset = charset
+		try:
+			self.conn = MySQLdb.connect(host = self.host,user = self.paasswd,charset=self.charset)
+			self.cur = self.conn.cursor()
+		except MySQLdb.Error as e:
+			print('MySQL Error %d: %s' %(e.args[0], e.args[1]))
+	
+	'''组合字符串'''
+	def joinData(self,data,char = ','):
+		return char.join(data)
+		
+	'''解析条件语句，参数类型[{dict} ,'AND|OR'] | {dict}]'''
+	def parseMap(self, condition):
+		if isinstance(condition, list):
+			dictMap = condition[0]
+			logic = ' '+condition[1] +' '
+		else:
+			dictMap = condition
+			logic = 'AND'
+		
+		if isinstance(dictMap, dict):
+			for k, v in dictMap.items():
+				dictMap[k] = "'"+ k +"' = '"+ str(v) + "'"
+			return self.joinData(dictMap.values(), logic)
+		else :
+			return '1=1'
+		
+	'''选择数据表'''
+	def selectDb(self,db):
+		try:
+			self.conn.select_db(db)
+		except MySQLdb.Error as e:
+			print('MySQL Error %d: %s' %(e.args[0],e.args[1]))
+			
+	'''执行SQL语句'''
+	def query(self,sql):
+		try :
+			return self.cur.execute(sql)
+		except MySQLdb.Error as e:
+			print 'MySQL Error: %s \nSQL: %s' % (e,sql)
+	
+	'''添加一条信息'''
+	def addOne(self ,table, dictData):
+		for field,value in dictData.item():
+			dictData[field] = "'"+ str(value) +"'"
+		self.query('INSERT INTO' + table + "(" + slef.joinData(dictData.keys()) + ')VALUES(' + self.joinData(dictData.values()) + ')')
+		
+		return self.cur.lastrowid
+	
+	'''删除信息[根据条件]'''
+	def deleteOne(self, table, condition):
+		return self.query('DELETE FROM' + table + 'WHERE' + self.parseMap(condition))
+	
+	'''读取单条信息[根据条件]'''
+	def fetchOne(self, tabel, condition, fields = '*', dataType= 0):
+		field = isinstance(fields, list) and self.joinData(fields) or fields
+		self.query('SELECT' + field + 'FROM' + tabel + 'WHERE' + self.parseMap(condition))
+		tupleData = self.cur.fetchone()
+		if dataType == 0 or fields == '*' :
+			return tupleData
+		else:
+			dictData = {}
+			n = 0
+			for k in fields:
+				dictData[k] = tupleData[n]
+				n = n + 1
+			return dictData
+		
+	'''读取多条信息[根据条件]'''
+	def fetchSome(self, tabel, condition, fields = '*',dataType = 0):
+		field = isinstance(fields,list) and self.joinData(fields) or fields
+		self.query('SELECT'+ field + 'FROM' + tabel + 'WHERE' + self.parseMap(condition))
+		tupleData = self.cur.fetchall()
+		count = self.cur.rowcount
+		if count > 0:
+			if dataType == 0 or fields == '*':
+				return (int(count), tupleData)
+			else :
+				listData = []
+				for row in tupleData:
+					dictData = {}
+					n=0
+					for k in fields:
+						dictData[k] = row[n]
+						n = n+1
+					listData.append(dictData)
+				return (int(count), listData)
+		else:
+			return False
+		
+		'''获得信息总数[根据条件]'''
+		def getCount(self ,tabel, condition=0):
+			where = isinstance(condition,dict) and 'WHere' + self.parseMap(condition) or ''
+			self.query('SELECT 0 FROM' + tabel + where)
+			return self.cur.rowcount
+		
+		'''提交事务'''
+		def commit(self):
+			self.conn.commit()
+			
+		'''关闭句柄和连接'''
+		def close(self):
+			self.cur.close()
+			self.conn.close()
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		))
