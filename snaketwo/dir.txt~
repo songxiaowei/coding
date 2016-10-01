@@ -1,0 +1,6 @@
+这个是V.02爬虫
+实现功能：遍历数组写入文本
+期间出现问题：换行是'\n'
+参考文档：http://www.cnblogs.com/xueweihan/p/4592212.html
+
+time = 2016-09-21
