@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+	<HEAD>
+		<title>登录</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Language" content="gb2312">
+		<meta content="all" name="robots">
+		<meta name="author" content="作者信息">
+		<meta name="Copyright" content="版权信息">
+		<meta name="description" content="站点介绍">
+		<meta name="keywords" content="站点关键词">
+		<link rel="stylesheet" href="style/base/jw.css" type="text/css" media="all">
+			<link rel="stylesheet" href="style/standard/jw.css" type="text/css" media="all"> <!--[if lte IE 6]>
+<SCRIPT language=javascript src="style/js/pngbug.js"></SCRIPT>
+<![endif]-->
+	<style>
+		.fangshua { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: red }
+		</style>
+	</HEAD>
+	<body class="login_bg">
+		<form name="form1" method="post" action="default2.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" value="dDwxOTI3MTM3Mjk0Ozs+QfR6JETFyd62h+toLFFXl+4IoBw=" />
+
+			
+			<div class="login_main">
+				<div class="login_logo"><img src="logo/login_jw.png" alt="学校图标"></div>
+				<div class="login_left"><img class="login_pic" src="logo/login_pic.png"></div>
+				<div class="login_right">
+					<dl>
+						<dt class="uesr">
+							<label>用户名：</label></dt>
+						<dd>
+							<input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor" /></dd>
+						<dt class="passw">
+							<label>密　码：</label></dt>
+						<dd class="yzm">
+							<input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor" /></dd>
+						<dt></dt>
+						<dd>
+							<table id="RadioButtonList1" border="0">
+	<tr>
+		<td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="部门" tabindex="3" /><label for="RadioButtonList1_0">部门</label></td><td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="3" /><label for="RadioButtonList1_1">教师</label></td><td><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="3" /><label for="RadioButtonList1_2">学生</label></td><td><input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="访客" tabindex="3" /><label for="RadioButtonList1_3">访客</label></td>
+	</tr>
+</table></dd>
+						<dt></dt>
+						<dd>
+							<input type="submit" name="Button1" value="" id="Button1" class="btn_dl" /><input type="submit" name="Button2" value="" id="Button2" class="btn_cz" onclick="window.close();" />
+							<p>
+								<a href="" style="display:none" target="_blank">忘记密码，点此取回</a><br>
+							   <a href="xsxjxtdl.aspx" style="display:none"  target="_blank">学生学籍信息查询系统</a>
+								<span id="cs" class="fangshua">请不要重复刷新！</span>
+							</p>
+						</dd>
+						
+					</dl>
+				</div>
+				<div class="login_copyright">Copyright &copy; 2009 版权所有ZFSOFT</div>
+			</div>
+		</form>
+	</body>
+</HTML>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+	<HEAD>
+		<title>登录</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		<meta http-equiv="Content-Language" content="gb2312">
+		<meta content="all" name="robots">
+		<meta name="author" content="作者信息">
+		<meta name="Copyright" content="版权信息">
+		<meta name="description" content="站点介绍">
+		<meta name="keywords" content="站点关键词">
+		<link rel="stylesheet" href="style/base/jw.css" type="text/css" media="all">
+			<link rel="stylesheet" href="style/standard/jw.css" type="text/css" media="all"> <!--[if lte IE 6]>
+<SCRIPT language=javascript src="style/js/pngbug.js"></SCRIPT>
+<![endif]-->
+	<style>
+		.fangshua { FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: red }
+		</style>
+	</HEAD>
+	<body class="login_bg">
+		<form name="form1" method="post" action="default2.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" value="dDwxOTI3MTM3Mjk0Ozs+QfR6JETFyd62h+toLFFXl+4IoBw=" />
+
+			
+			<div class="login_main">
+				<div class="login_logo"><img src="logo/login_jw.png" alt="学校图标"></div>
+				<div class="login_left"><img class="login_pic" src="logo/login_pic.png"></div>
+				<div class="login_right">
+					<dl>
+						<dt class="uesr">
+							<label>用户名：</label></dt>
+						<dd>
+							<input name="TextBox1" type="text" id="TextBox1" tabindex="1" class="text_nor" /></dd>
+						<dt class="passw">
+							<label>密　码：</label></dt>
+						<dd class="yzm">
+							<input name="TextBox2" type="password" id="TextBox2" tabindex="2" class="text_nor" /></dd>
+						<dt></dt>
+						<dd>
+							<table id="RadioButtonList1" border="0">
+	<tr>
+		<td><input id="RadioButtonList1_0" type="radio" name="RadioButtonList1" value="部门" tabindex="3" /><label for="RadioButtonList1_0">部门</label></td><td><input id="RadioButtonList1_1" type="radio" name="RadioButtonList1" value="教师" tabindex="3" /><label for="RadioButtonList1_1">教师</label></td><td><input id="RadioButtonList1_2" type="radio" name="RadioButtonList1" value="学生" checked="checked" tabindex="3" /><label for="RadioButtonList1_2">学生</label></td><td><input id="RadioButtonList1_3" type="radio" name="RadioButtonList1" value="访客" tabindex="3" /><label for="RadioButtonList1_3">访客</label></td>
+	</tr>
+</table></dd>
+						<dt></dt>
+						<dd>
+							<input type="submit" name="Button1" value="" id="Button1" class="btn_dl" /><input type="submit" name="Button2" value="" id="Button2" class="btn_cz" onclick="window.close();" />
+							<p>
+								<a href="" style="display:none" target="_blank">忘记密码，点此取回</a><br>
+							   <a href="xsxjxtdl.aspx" style="display:none"  target="_blank">学生学籍信息查询系统</a>
+								
+							</p>
+						</dd>
+						
+					</dl>
+				</div>
+				<div class="login_copyright">Copyright &copy; 2009 版权所有ZFSOFT</div>
+			</div>
+		</form>
+	</body>
+</HTML>

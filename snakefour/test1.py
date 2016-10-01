@@ -1,0 +1,51 @@
+#coding=utf-8
+import HTMLParser
+import urlparse
+import urllib
+import urllib2
+import cookielib
+import string
+import re
+#结果和test1.py效果一样，并没有登录进去
+hosturl = 'http://218.65.107.173/default2.aspx'
+posturl = 'http://218.65.107.173/default2.aspx'
+
+#设置一个cookie处理器，它负责从服务器下载cookie到本地，并且在发送请求时带上本地的cookie
+cj = cookielib.LWPCookieJar()
+cookie_support = urllib2.HTTPCookieProcessor(cj)
+opener = urllib2.build_opener(cookie_support, urllib2.HTTPHandler)
+urllib2.install_opener(opener)
+
+#打开登录主页面（从页面下载cookie，这样我妈再发送post数据时就有cookie了，否则发送不成功）
+h = urllib2.urlopen(hosturl)
+#包中的请求头中的信息
+headers = { 'Host':'218.65.107.173',
+			'User-Agent':'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0',
+			'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+			'Accept-Language':'en-US,en;q=0.5',
+			'Accept_Encoding':'gzip, deflate',
+			'Referer':'http://218.65.107.173/default2.aspx',
+			'Cookie':'ASP.NET_SessionId=jdnw5a552sdvpd55oify0lqs',
+			'Connection':'keep-alive',
+			'Upgrade-Insecure-Requests':'1'}
+			
+#包中post的data数据
+postData = {'__VIEWSTATA':"dDwxOTI3MTM3Mjk0Ozs+QfR6JETFyd62h+toLFFXl+4IoBw=",
+			'TextBox1':'12223323',
+			'TextBox2':'123456as',
+			'RadioButtonList1':"Ñ§Éú",
+			'Button1':""}
+			
+postData = urllib.urlencode(postData)
+
+request = urllib2.Request(posturl,postData,headers)
+print request
+response = urllib2.urlopen(request)
+text = response.read()
+with open('c.txt','a+') as fo:
+	fo.write(text)
+print text
+
+
+#http://218.65.107.173/xs_main.aspx?xh=12223323
+
